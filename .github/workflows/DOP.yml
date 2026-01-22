@@ -1,0 +1,24 @@
+# Archivo de configuración para GitHub Actions
+name: DevOps_Victor_Alvarez
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ejecutar script de una linea
+        run: echo Prueba, CI
+
+      - name: Ejecutar script multi-linea
+        run: |
+          echo Iniciando el pipeline de Victor...
+          echo Testeando y desplegando el proyecto UBER.
