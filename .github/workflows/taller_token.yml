@@ -1,0 +1,20 @@
+name: Taller_Tokens_Victor
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job-con-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Usar Token Personal (PAT)
+        # Este paso usa tu secreto PATH_SECRET para consultar la API de GitHub
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.PATH_SECRET }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/user/repos
